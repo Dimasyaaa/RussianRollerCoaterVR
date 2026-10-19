@@ -10,9 +10,16 @@ var _held_seconds := 0.0
 @onready var water_audio: AudioStreamPlayer3D = $WaterSound
 
 func _ready() -> void:
-	$WaterButton.activated.connect(func(): _held = true; _held_seconds = 0.0)
-	$WaterButton.deactivated.connect(func(): _held = false)
-	$BottleButton.activated.connect(func(): remaining_liters = 4.0)
+	# БЕЗОПАСНОЕ ПОЛУЧЕНИЕ УЗЛОВ И ПРОВЕРКИ:
+	var water_button = get_node_or_null("WaterButton")
+	if water_button:
+		water_button.activated.connect(func(): _held = true; _held_seconds = 0.0)
+		water_button.deactivated.connect(func(): _held = false)
+	
+	var bottle_button = get_node_or_null("BottleButton")
+	if bottle_button:
+		bottle_button.activated.connect(func(): remaining_liters = 4.0)
+
 	if water_audio.stream is AudioStreamWAV:
 		water_audio.stream = water_audio.stream.duplicate()
 		water_audio.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD

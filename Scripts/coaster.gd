@@ -53,8 +53,6 @@ func _enter_tree() -> void:
 	var simulator := get_node_or_null("/root/XrSimulator")
 	var player := get_parent().get_node_or_null("Player")
 	if simulator and simulator.enabled and player:
-		# Save the park poses before the simulator sees the second rig's
-		# controllers and applies its initial horizontal offsets again.
 		_startup_left = player.get_node("XROrigin3D/Left").transform
 		_startup_right = player.get_node("XROrigin3D/Right").transform
 		_simulator_startup_saved = true
@@ -62,7 +60,8 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	route_length = path.curve.get_baked_length()
 	_cache_wheels()
-	_station_message = $Station/Instructions
+	# БЕЗОПАСНОЕ ПОЛУЧЕНИЕ УЗЛА:
+	_station_message = get_node_or_null("Station/Instructions")
 	_set_cart_progress(0.0)
 	if Engine.is_editor_hint():
 		set_physics_process(false)
@@ -83,8 +82,6 @@ func _ready() -> void:
 	_park_camera.make_current()
 	_kiosk.ticket_purchased.connect(_on_ticket_purchased)
 	ticket_available = _kiosk.is_paid
-	# The simulator binds the last added XR nodes, including an inactive rig.
-	# Explicitly bind the active player on startup and on every camera switch.
 	if _simulator_startup_saved:
 		_park_origin.get_node("Left").transform = _startup_left
 		_park_origin.get_node("Right").transform = _startup_right
@@ -114,7 +111,9 @@ func _on_ticket_purchased() -> void:
 	_update_waiting_message()
 
 func _update_waiting_message() -> void:
-	_station_message.text = "Билет оплачен. Проходите на посадку" if ticket_available else "Оплатите билет в кассе"
+	# ДОБАВЛЕНА ПРОВЕРКА НА NULL:
+	if _station_message:
+		_station_message.text = "Билет оплачен. Проходите на посадку" if ticket_available else "Оплатите билет в кассе"
 	ride_message.text = "ПОСАДКА" if ticket_available else "НУЖЕН БИЛЕТ"
 
 func _physics_process(delta: float) -> void:
@@ -168,8 +167,6 @@ func _prepare_audio_loop(player: Node) -> void:
 		player.stream.loop_end = roundi(player.stream.get_length()*player.stream.mix_rate)
 
 func _target_bank(distance: float, velocity: float) -> float:
-	# Signed horizontal curvature gives lateral acceleration v²/r. Use it to
-	# bank the cart parent, leaving the headset's tracked local pose untouched.
 	var before := -_track_transform(distance-2.0).basis.z
 	var after := -_track_transform(distance+2.0).basis.z
 	before.y = 0.0
@@ -214,7 +211,6 @@ func _board() -> void:
 	_saved_body_layer = body.collision_layer
 	_saved_body_mask = body.collision_mask
 	_saved_body_enabled = body.is_physics_processing()
-	# Drop held items before disabling their grab driver.
 	for controller_name in ["Left","Right"]:
 		var pickup = _park_origin.get_node(controller_name+"/FunctionPickup")
 		pickup.drop_object()
@@ -240,7 +236,9 @@ func _board() -> void:
 	state = RideState.COUNTDOWN
 	_clock = countdown_seconds
 	_last_count = -1
-	_station_message.text = "Вагонетка на маршруте"
+	# ДОБАВЛЕНА ПРОВЕРКА НА NULL:
+	if _station_message:
+		_station_message.text = "Вагонетка на маршруте"
 	speed = 0.0
 
 func _unboard() -> void:
@@ -259,7 +257,6 @@ func _unboard() -> void:
 	body.collision_layer = _saved_body_layer
 	body.collision_mask = _saved_body_mask
 	body.set_physics_process(_saved_body_enabled)
-	# Keep the wallet accessible when returning to the walking player.
 	var wallet = _park_origin.get_node("WalletBelt/Wallet")
 	var holster = _park_origin.get_node("WalletBelt/WalletHolster")
 	if is_instance_valid(wallet) and not wallet.is_picked_up():
