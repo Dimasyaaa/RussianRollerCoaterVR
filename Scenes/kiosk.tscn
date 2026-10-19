@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://bvdv8fwdhtk3r"]
+
+[ext_resource type="PackedScene" uid="uid://be70sr3u5u65m" path="res://Models/Kiosk/Carnival Booth by sirkitree - 4NizXJZsuO2.glb" id="1_wfirc"]
+[ext_resource type="Script" uid="uid://ch7muehrpnh58" path="res://Scripts/kioskController.gd" id="2_umdfo"]
+[ext_resource type="AudioStream" uid="uid://bcrs7xynylc6h" path="res://Audio/payment_coins.wav" id="3_coins"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(0.491333, 0.4697876, 0.18847656)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_riqys"]
+size = Vector3(0.18, 0.12, 0.12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tray"]
+albedo_color = Color(0.25, 0.28, 0.3, 1)
+metallic = 0.8
+roughness = 0.35
+
+[sub_resource type="BoxMesh" id="BoxMesh_tray_floor"]
+material = SubResource("StandardMaterial3D_tray")
+size = Vector3(0.2, 0.008, 0.14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tray_floor"]
+size = Vector3(0.2, 0.008, 0.14)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tray_side"]
+material = SubResource("StandardMaterial3D_tray")
+size = Vector3(0.008, 0.025, 0.14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tray_side"]
+size = Vector3(0.008, 0.025, 0.14)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tray_back"]
+material = SubResource("StandardMaterial3D_tray")
+size = Vector3(0.2, 0.025, 0.008)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tray_back"]
+size = Vector3(0.2, 0.025, 0.008)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tray_highlight"]
+shading_mode = 0
+albedo_color = Color(0.1, 1, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tray_highlight"]
+material = SubResource("StandardMaterial3D_tray_highlight")
+size = Vector3(0.18, 0.001, 0.12)
+
+[node name="Kiosk" unique_id=901603626 node_paths=PackedStringArray("payment_zone") instance=ExtResource("1_wfirc")]
+script = ExtResource("2_umdfo")
+payment_zone = NodePath("PaymentZone")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="group762351938" parent_id_path=PackedInt32Array(1927833434) index="0" unique_id=554511392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.07040045)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="group762351938/StaticBody3D" index="0" unique_id=1906795704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010803223, 0.04812622, -0.10187131)
+shape = SubResource("BoxShape3D_bhunq")
+
+[node name="PaymentZone" type="Area3D" parent="." index="1" unique_id=664494653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.14530975)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PaymentZone" index="0" unique_id=1818337572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009399414, -0.0028238297, -0.02)
+shape = SubResource("BoxShape3D_riqys")
+
+[node name="PaymentSound" type="AudioStreamPlayer3D" parent="PaymentZone" index="1" unique_id=843236181]
+stream = ExtResource("3_coins")
+volume_db = -10.0
+unit_size = 6.0
+max_distance = 20.0
+
+[node name="Tray" type="StaticBody3D" parent="PaymentZone" index="2" unique_id=1050927275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009399414, -0.06682383, -0.02)
+
+[node name="Floor" type="MeshInstance3D" parent="PaymentZone/Tray" index="0" unique_id=902248973]
+mesh = SubResource("BoxMesh_tray_floor")
+
+[node name="FloorCollision" type="CollisionShape3D" parent="PaymentZone/Tray" index="1" unique_id=872345539]
+shape = SubResource("BoxShape3D_tray_floor")
+
+[node name="LeftSide" type="MeshInstance3D" parent="PaymentZone/Tray" index="2" unique_id=585360973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.096, 0.0125, 0)
+mesh = SubResource("BoxMesh_tray_side")
+
+[node name="LeftCollision" type="CollisionShape3D" parent="PaymentZone/Tray" index="3" unique_id=71162725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.096, 0.0125, 0)
+shape = SubResource("BoxShape3D_tray_side")
+
+[node name="RightSide" type="MeshInstance3D" parent="PaymentZone/Tray" index="4" unique_id=726541832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.096, 0.0125, 0)
+mesh = SubResource("BoxMesh_tray_side")
+
+[node name="RightCollision" type="CollisionShape3D" parent="PaymentZone/Tray" index="5" unique_id=84455159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.096, 0.0125, 0)
+shape = SubResource("BoxShape3D_tray_side")
+
+[node name="Back" type="MeshInstance3D" parent="PaymentZone/Tray" index="6" unique_id=1815961862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0125, -0.066)
+mesh = SubResource("BoxMesh_tray_back")
+
+[node name="BackCollision" type="CollisionShape3D" parent="PaymentZone/Tray" index="7" unique_id=1466595982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0125, -0.066)
+shape = SubResource("BoxShape3D_tray_back")
+
+[node name="TrayHighlight" type="MeshInstance3D" parent="PaymentZone" index="3" unique_id=1863606791]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009399414, -0.06182383, -0.02)
+visible = false
+mesh = SubResource("BoxMesh_tray_highlight")
+
+[node name="PaymentMessage" type="Label3D" parent="PaymentZone" index="4" unique_id=2137845778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009399414, 0.09, 0.02)
+visible = false
+pixel_size = 0.0002
+billboard = 1
+text = "Положите купюру в лоток"
+font_size = 48

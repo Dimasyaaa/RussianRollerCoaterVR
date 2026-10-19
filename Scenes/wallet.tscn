@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://c2joxxgmosusi"]
+
+[ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_nw0pp"]
+[ext_resource type="PackedScene" uid="uid://cc8flshvxiddc" path="res://Scenes/cash.tscn" id="1_vydww"]
+[ext_resource type="PackedScene" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="3_bill_slot"]
+[ext_resource type="Script" path="res://Scripts/wallet_inventory.gd" id="4_inventory"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bill"]
+albedo_color = Color(0.02, 0.56, 0.30, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wallet_bill"]
+material = SubResource("StandardMaterial3D_bill")
+size = Vector3(0.14, 0.003, 0.10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wallet_bill"]
+size = Vector3(0.14, 0.01, 0.10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8d6ww"]
+albedo_color = Color(0.39215687, 0.27450982, 0.19607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
+material = SubResource("StandardMaterial3D_8d6ww")
+size = Vector3(0.8, 0.15, 0.6)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yydfa"]
+data = PackedVector3Array(-0.39999998, 0.074999996, 0.29999998, 0.39999998, 0.074999996, 0.29999998, -0.39999998, -0.074999996, 0.29999998, 0.39999998, 0.074999996, 0.29999998, 0.39999998, -0.074999996, 0.29999998, -0.39999998, -0.074999996, 0.29999998, 0.39999998, 0.074999996, -0.29999998, -0.39999998, 0.074999996, -0.29999998, 0.39999998, -0.074999996, -0.29999998, -0.39999998, 0.074999996, -0.29999998, -0.39999998, -0.074999996, -0.29999998, 0.39999998, -0.074999996, -0.29999998, 0.39999998, 0.074999996, 0.29999998, 0.39999998, 0.074999996, -0.29999998, 0.39999998, -0.074999996, 0.29999998, 0.39999998, 0.074999996, -0.29999998, 0.39999998, -0.074999996, -0.29999998, 0.39999998, -0.074999996, 0.29999998, -0.39999998, 0.074999996, -0.29999998, -0.39999998, 0.074999996, 0.29999998, -0.39999998, -0.074999996, -0.29999998, -0.39999998, 0.074999996, 0.29999998, -0.39999998, -0.074999996, 0.29999998, -0.39999998, -0.074999996, -0.29999998, 0.39999998, 0.074999996, 0.29999998, -0.39999998, 0.074999996, 0.29999998, 0.39999998, 0.074999996, -0.29999998, -0.39999998, 0.074999996, 0.29999998, -0.39999998, 0.074999996, -0.29999998, 0.39999998, 0.074999996, -0.29999998, -0.39999998, -0.074999996, 0.29999998, 0.39999998, -0.074999996, 0.29999998, -0.39999998, -0.074999996, -0.29999998, 0.39999998, -0.074999996, 0.29999998, 0.39999998, -0.074999996, -0.29999998, -0.39999998, -0.074999996, -0.29999998)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(0.24, 0.03, 0.18)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_riqys"]
+size = Vector3(0.24, 0.045, 0.18)
+
+[node name="Wallet" type="RigidBody3D" unique_id=5800356 groups=["wallet"]]
+top_level = true
+collision_layer = 4
+collision_mask = 3
+freeze_mode = 1
+script = ExtResource("1_nw0pp")
+release_mode = 0
+metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
+
+[node name="Model" type="MeshInstance3D" parent="." unique_id=1237029789]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("BoxMesh_bhunq")
+
+[node name="CashHolder" type="Node3D" parent="Model" unique_id=1680906279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07272372, -0.04217428, 0)
+
+[node name="Cash" parent="Model/CashHolder" unique_id=1699085040 instance=ExtResource("1_vydww")]
+transform = Transform3D(0.0265162, 0, 0.9996484, 0, 1, 0, -0.9996484, 0, 0.0265162, 0.22520745, 0.11571148, 0)
+top_level = true
+collision_layer = 4
+collision_mask = 3
+freeze_mode = 1
+freeze = true
+enabled = true
+release_mode = 0
+picked_up_layer = 65536
+
+[node name="MeshInstance3D" parent="Model/CashHolder/Cash" index="0"]
+mesh = SubResource("BoxMesh_wallet_bill")
+
+[node name="CollisionShape3D" parent="Model/CashHolder/Cash" index="1"]
+shape = SubResource("BoxShape3D_wallet_bill")
+
+[node name="MeshInstance3D2" parent="Model/CashHolder/Cash" index="2"]
+transform = Transform3D(0.135, 0, 0, 0, 0.04756756, 0, 0, 0, 0.02873869, -0.00098887, 0.00094647, 0.01783575)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Model" unique_id=1788831274]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/StaticBody3D" unique_id=501919936]
+shape = SubResource("ConcavePolygonShape3D_yydfa")
+disabled = true
+
+[node name="GrabZone" type="Area3D" parent="." unique_id=1886872592]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrabZone" unique_id=390376294]
+shape = SubResource("BoxShape3D_bhunq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1602572077]
+shape = SubResource("BoxShape3D_riqys")
+
+[node name="BillSlot" parent="." instance=ExtResource("3_bill_slot")]
+position = Vector3(0, 0.035, 0)
+script = ExtResource("4_inventory")
+grab_distance = 0.14
+snap_require = "money"
+initial_object = NodePath("../Model/CashHolder/Cash")
+
+[node name="BanknoteCount" type="Label3D" parent="."]
+position = Vector3(0, 0.075, -0.09)
+billboard = 1
+text = "КУПЮРЫ: 3/8"
+font_size = 32
+outline_size = 6
+pixel_size = 0.001

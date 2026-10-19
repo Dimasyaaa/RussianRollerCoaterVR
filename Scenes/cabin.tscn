@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://drea6p1dy1oxy"]
+
+[ext_resource type="Material" uid="uid://d3p8s8e3mic6c" path="res://Materials/fence_material.tres" id="1_ms4um"]
+[ext_resource type="Material" uid="uid://jo7pv0mrmdp0" path="res://Materials/orbitaMaterial.tres" id="2_c28uo"]
+
+[node name="Cabin" type="Node3D" unique_id=897729732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.449729, 0, 0, 0)
+
+[node name="1" type="CSGCylinder3D" parent="." unique_id=278723268]
+transform = Transform3D(1, 0, 0, 0, 0.43400568, 0, 0, 0, 1, 0.38190055, 0.2917695, 0.2169766)
+radius = 0.031
+height = 1.6728516
+sides = 15
+material = ExtResource("1_ms4um")
+
+[node name="2" type="CSGCylinder3D" parent="." unique_id=257235960]
+transform = Transform3D(1, 0, 0, 0, 0.42761585, 0, 0, 0, 1, 0.36388463, 0.29141092, -0.23683088)
+radius = 0.031
+height = 1.6728516
+sides = 15
+material = ExtResource("1_ms4um")
+
+[node name="3" type="CSGCylinder3D" parent="." unique_id=64248393]
+transform = Transform3D(1, 0, 0, 0, 0.43400568, 0, 0, 0, 1, -0.14933139, 0.2914424, 0.21697553)
+radius = 0.031
+height = 1.6728516
+sides = 15
+material = ExtResource("1_ms4um")
+
+[node name="cab_01" type="CSGBox3D" parent="." unique_id=1821784630]
+transform = Transform3D(1.2974485, 0, 0, 0, 0.5904811, 0, 0, 0, 0.07785219, 0.11074718, -0.19779682, 0.21578082)
+size = Vector3(0.47161865, 1, 1)
+material = ExtResource("2_c28uo")
+
+[node name="cab_02" type="CSGBox3D" parent="." unique_id=1297741181]
+transform = Transform3D(1.2974485, 0, 0, 0, 0.5904811, 0, 0, 0, 0.07785219, 0.10401603, -0.19758892, -0.23583087)
+size = Vector3(0.46295166, 1, 1)
+material = ExtResource("2_c28uo")
+
+[node name="cab_03" type="CSGBox3D" parent="." unique_id=522121933]
+transform = Transform3D(-2.217968e-08, 0, 0.07785219, 0, 0.5904811, 0, -0.50741196, 0, -3.4030272e-09, 0.37568337, -0.19758892, -0.0098716775)
+size = Vector3(1.0389099, 1, 1)
+material = ExtResource("2_c28uo")
+
+[node name="cab_04" type="CSGBox3D" parent="." unique_id=1443231517]
+transform = Transform3D(-2.217968e-08, 0, 0.07785219, 0, 0.5904811, 0, -0.50741196, 0, -3.4030272e-09, -0.16128024, -0.19758892, -0.01)
+size = Vector3(1.0389099, 1, 1)
+material = ExtResource("2_c28uo")
+
+[node name="cab_05" type="CSGBox3D" parent="." unique_id=1497667735]
+transform = Transform3D(1.2917781, 0, 0, 0, 0.06396574, 0, 0, 0, 0.5104039, 0.10841033, -0.46090555, -0.010171317)
+size = Vector3(0.46472168, 1, 1.0361938)
+material = ExtResource("2_c28uo")

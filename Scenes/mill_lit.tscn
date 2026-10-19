@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/mill.tscn" id="model"]
+[ext_resource type="PackedScene" path="res://Scenes/mill_garland.tscn" id="lights"]
+
+[node name="Mill" instance=ExtResource("model")]
+
+[node name="Garland" parent="." instance=ExtResource("lights")]

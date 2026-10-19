@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/wallet_belt.gd" id="belt_script"]
+[ext_resource type="PackedScene" path="res://Scenes/wallet.tscn" id="wallet"]
+[ext_resource type="PackedScene" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="holster"]
+[ext_resource type="Script" path="res://Scripts/ranged_snap_zone.gd" id="holster_script"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/return_to_snap_zone.gd" id="return_script"]
+
+[node name="WalletBelt" type="Node3D"]
+top_level = true
+process_priority = -10
+script = ExtResource("belt_script")
+
+[node name="Wallet" parent="." instance=ExtResource("wallet")]
+
+[node name="ReturnToBelt" type="Node" parent="Wallet"]
+script = ExtResource("return_script")
+snap_zone_path = NodePath("../../WalletHolster")
+return_delay = 5.0
+
+[node name="WalletHolster" parent="." instance=ExtResource("holster")]
+script = ExtResource("holster_script")
+grab_distance = 0.28
+snap_require = "wallet"
+initial_object = NodePath("../Wallet")

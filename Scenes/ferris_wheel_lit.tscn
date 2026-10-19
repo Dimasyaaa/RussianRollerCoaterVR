@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/ferris_wheel.tscn" id="model"]
+[ext_resource type="PackedScene" path="res://Scenes/orbit_garland.tscn" id="lights"]
+
+[node name="FerrisWheel" instance=ExtResource("model")]
+
+[node name="Garland" parent="Axle" instance=ExtResource("lights")]

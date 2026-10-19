@@ -1,0 +1,184 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/night_lighting.gd" id="lighting_script"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rvti"]
+albedo_color = Color(0.12, 0.15, 0.17, 1)
+metallic = 0.7
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o2i61"]
+material = SubResource("StandardMaterial3D_3rvti")
+top_radius = 0.0108
+bottom_radius = 0.0108
+height = 1.0
+radial_segments = 6
+
+[sub_resource type="MultiMesh" id="MultiMesh_04k63"]
+transform_format = 1
+instance_count = 18
+mesh = SubResource("CylinderMesh_o2i61")
+buffer = PackedFloat32Array(0, 0.29999995, 0.17715271, -2.5500002, 0, -0.0539999, 0.9841834, -5.091, 1, 0, 0, -1.07, 0, 0.3000002, 0.17715257, -2.25, 0, -0.0539999, 0.9841834, -5.145, 1, 0, 0, -1.07, 0, 0.29999995, 0.17715271, -1.9499999, 0, -0.0539999, 0.9841834, -5.199, 1, 0, 0, -1.07, 0, 0.29999995, 0.17715423, -1.65, 0, -0.054000378, 0.9841831, -5.2530003, 1, 0, 0, -1.07, 0, 0.29999995, 0.17715271, -1.35, 0, -0.0539999, 0.9841834, -5.307, 1, 0, 0, -1.07, 0, 0.30000007, 0.17715265, -1.05, 0, -0.0539999, 0.9841834, -5.361, 1, 0, 0, -1.07, 0, 0.29999995, 0.17715271, -0.75, 0, -0.0539999, 0.9841834, -5.415, 1, 0, 0, -1.07, 0, 0.3, 0.17715268, -0.45000002, 0, -0.0539999, 0.9841834, -5.469, 1, 0, 0, -1.07, 0, 0.3, 0.17715418, -0.15, 0, -0.054000378, 0.9841831, -5.523, 1, 0, 0, -1.07, 0, 0.3, -0.17715418, 0.15, 0, 0.054000378, 0.9841831, -5.523, 1, 0, 0, -1.07, 0, 0.3, -0.17715268, 0.45000002, 0, 0.0539999, 0.9841834, -5.469, 1, 0, 0, -1.07, 0, 0.29999995, -0.17715271, 0.75, 0, 0.0539999, 0.9841834, -5.415, 1, 0, 0, -1.07, 0, 0.30000007, -0.17715265, 1.05, 0, 0.0539999, 0.9841834, -5.361, 1, 0, 0, -1.07, 0, 0.29999995, -0.17715271, 1.35, 0, 0.0539999, 0.9841834, -5.307, 1, 0, 0, -1.07, 0, 0.29999995, -0.17715423, 1.65, 0, 0.054000378, 0.9841831, -5.2530003, 1, 0, 0, -1.07, 0, 0.29999995, -0.17715271, 1.9499999, 0, 0.0539999, 0.9841834, -5.199, 1, 0, 0, -1.07, 0, 0.3000002, -0.17715257, 2.25, 0, 0.0539999, 0.9841834, -5.145, 1, 0, 0, -1.07, 0, 0.29999995, -0.17715271, 2.5500002, 0, 0.0539999, 0.9841834, -5.091, 1, 0, 0, -1.07)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emkao"]
+shading_mode = 1
+albedo_color = Color(0.45, 0.324, 0.144, 1)
+emission_enabled = true
+emission = Color(1, 0.72, 0.32, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_felw5"]
+material = SubResource("StandardMaterial3D_emkao")
+radius = 0.06
+height = 0.12
+radial_segments = 10
+rings = 5
+
+[sub_resource type="MultiMesh" id="MultiMesh_ugo00"]
+transform_format = 1
+instance_count = 7
+mesh = SubResource("SphereMesh_felw5")
+buffer = PackedFloat32Array(1, 0, 0, -2.7, 0, 1, 0, -5.064, 0, 0, 1, -1.07, 1, 0, 0, -1.8, 0, 1, 0, -5.226, 0, 0, 1, -1.07, 1, 0, 0, -0.9, 0, 1, 0, -5.388, 0, 0, 1, -1.07, 1, 0, 0, 0, 0, 1, 0, -5.55, 0, 0, 1, -1.07, 1, 0, 0, 0.9, 0, 1, 0, -5.388, 0, 0, 1, -1.07, 1, 0, 0, 1.8, 0, 1, 0, -5.226, 0, 0, 1, -1.07, 1, 0, 0, 2.7, 0, 1, 0, -5.064, 0, 0, 1, -1.07)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ata5"]
+shading_mode = 1
+albedo_color = Color(0.4275, 0.3825, 0.261, 1)
+emission_enabled = true
+emission = Color(0.95, 0.85, 0.58, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_4k2wm"]
+material = SubResource("StandardMaterial3D_1ata5")
+radius = 0.06
+height = 0.12
+radial_segments = 10
+rings = 5
+
+[sub_resource type="MultiMesh" id="MultiMesh_mq4u5"]
+transform_format = 1
+instance_count = 6
+mesh = SubResource("SphereMesh_4k2wm")
+buffer = PackedFloat32Array(1, 0, 0, -2.4, 0, 1, 0, -5.118, 0, 0, 1, -1.07, 1, 0, 0, -1.5, 0, 1, 0, -5.28, 0, 0, 1, -1.07, 1, 0, 0, -0.6, 0, 1, 0, -5.442, 0, 0, 1, -1.07, 1, 0, 0, 0.3, 0, 1, 0, -5.496, 0, 0, 1, -1.07, 1, 0, 0, 1.2, 0, 1, 0, -5.334, 0, 0, 1, -1.07, 1, 0, 0, 2.1, 0, 1, 0, -5.172, 0, 0, 1, -1.07)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctigu"]
+shading_mode = 1
+albedo_color = Color(0.405, 0.081, 0.045, 1)
+emission_enabled = true
+emission = Color(0.9, 0.18, 0.1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_vp61t"]
+material = SubResource("StandardMaterial3D_ctigu")
+radius = 0.06
+height = 0.12
+radial_segments = 10
+rings = 5
+
+[sub_resource type="MultiMesh" id="MultiMesh_h6obd"]
+transform_format = 1
+instance_count = 6
+mesh = SubResource("SphereMesh_vp61t")
+buffer = PackedFloat32Array(1, 0, 0, -2.1, 0, 1, 0, -5.172, 0, 0, 1, -1.07, 1, 0, 0, -1.2, 0, 1, 0, -5.334, 0, 0, 1, -1.07, 1, 0, 0, -0.3, 0, 1, 0, -5.496, 0, 0, 1, -1.07, 1, 0, 0, 0.6, 0, 1, 0, -5.442, 0, 0, 1, -1.07, 1, 0, 0, 1.5, 0, 1, 0, -5.28, 0, 0, 1, -1.07, 1, 0, 0, 2.4, 0, 1, 0, -5.118, 0, 0, 1, -1.07)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38blu"]
+albedo_color = Color(0.12, 0.15, 0.17, 1)
+metallic = 0.7
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_u71eh"]
+material = SubResource("StandardMaterial3D_38blu")
+top_radius = 0.0108
+bottom_radius = 0.0108
+height = 1.0
+radial_segments = 6
+
+[sub_resource type="MultiMesh" id="MultiMesh_jot11"]
+transform_format = 1
+instance_count = 18
+mesh = SubResource("CylinderMesh_u71eh")
+buffer = PackedFloat32Array(0, 0.29999995, 0.17715271, -2.5500002, 0, -0.0539999, 0.9841834, -5.091, 1, 0, 0, 1.07, 0, 0.3000002, 0.17715257, -2.25, 0, -0.0539999, 0.9841834, -5.145, 1, 0, 0, 1.07, 0, 0.29999995, 0.17715271, -1.9499999, 0, -0.0539999, 0.9841834, -5.199, 1, 0, 0, 1.07, 0, 0.29999995, 0.17715423, -1.65, 0, -0.054000378, 0.9841831, -5.2530003, 1, 0, 0, 1.07, 0, 0.29999995, 0.17715271, -1.35, 0, -0.0539999, 0.9841834, -5.307, 1, 0, 0, 1.07, 0, 0.30000007, 0.17715265, -1.05, 0, -0.0539999, 0.9841834, -5.361, 1, 0, 0, 1.07, 0, 0.29999995, 0.17715271, -0.75, 0, -0.0539999, 0.9841834, -5.415, 1, 0, 0, 1.07, 0, 0.3, 0.17715268, -0.45000002, 0, -0.0539999, 0.9841834, -5.469, 1, 0, 0, 1.07, 0, 0.3, 0.17715418, -0.15, 0, -0.054000378, 0.9841831, -5.523, 1, 0, 0, 1.07, 0, 0.3, -0.17715418, 0.15, 0, 0.054000378, 0.9841831, -5.523, 1, 0, 0, 1.07, 0, 0.3, -0.17715268, 0.45000002, 0, 0.0539999, 0.9841834, -5.469, 1, 0, 0, 1.07, 0, 0.29999995, -0.17715271, 0.75, 0, 0.0539999, 0.9841834, -5.415, 1, 0, 0, 1.07, 0, 0.30000007, -0.17715265, 1.05, 0, 0.0539999, 0.9841834, -5.361, 1, 0, 0, 1.07, 0, 0.29999995, -0.17715271, 1.35, 0, 0.0539999, 0.9841834, -5.307, 1, 0, 0, 1.07, 0, 0.29999995, -0.17715423, 1.65, 0, 0.054000378, 0.9841831, -5.2530003, 1, 0, 0, 1.07, 0, 0.29999995, -0.17715271, 1.9499999, 0, 0.0539999, 0.9841834, -5.199, 1, 0, 0, 1.07, 0, 0.3000002, -0.17715257, 2.25, 0, 0.0539999, 0.9841834, -5.145, 1, 0, 0, 1.07, 0, 0.29999995, -0.17715271, 2.5500002, 0, 0.0539999, 0.9841834, -5.091, 1, 0, 0, 1.07)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrq65"]
+shading_mode = 1
+albedo_color = Color(0.45, 0.324, 0.144, 1)
+emission_enabled = true
+emission = Color(1, 0.72, 0.32, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_h0uep"]
+material = SubResource("StandardMaterial3D_xrq65")
+radius = 0.06
+height = 0.12
+radial_segments = 10
+rings = 5
+
+[sub_resource type="MultiMesh" id="MultiMesh_cq2rq"]
+transform_format = 1
+instance_count = 7
+mesh = SubResource("SphereMesh_h0uep")
+buffer = PackedFloat32Array(1, 0, 0, -2.7, 0, 1, 0, -5.064, 0, 0, 1, 1.07, 1, 0, 0, -1.8, 0, 1, 0, -5.226, 0, 0, 1, 1.07, 1, 0, 0, -0.9, 0, 1, 0, -5.388, 0, 0, 1, 1.07, 1, 0, 0, 0, 0, 1, 0, -5.55, 0, 0, 1, 1.07, 1, 0, 0, 0.9, 0, 1, 0, -5.388, 0, 0, 1, 1.07, 1, 0, 0, 1.8, 0, 1, 0, -5.226, 0, 0, 1, 1.07, 1, 0, 0, 2.7, 0, 1, 0, -5.064, 0, 0, 1, 1.07)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgste"]
+shading_mode = 1
+albedo_color = Color(0.4275, 0.3825, 0.261, 1)
+emission_enabled = true
+emission = Color(0.95, 0.85, 0.58, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_5kp2e"]
+material = SubResource("StandardMaterial3D_dgste")
+radius = 0.06
+height = 0.12
+radial_segments = 10
+rings = 5
+
+[sub_resource type="MultiMesh" id="MultiMesh_5oo2l"]
+transform_format = 1
+instance_count = 6
+mesh = SubResource("SphereMesh_5kp2e")
+buffer = PackedFloat32Array(1, 0, 0, -2.4, 0, 1, 0, -5.118, 0, 0, 1, 1.07, 1, 0, 0, -1.5, 0, 1, 0, -5.28, 0, 0, 1, 1.07, 1, 0, 0, -0.6, 0, 1, 0, -5.442, 0, 0, 1, 1.07, 1, 0, 0, 0.3, 0, 1, 0, -5.496, 0, 0, 1, 1.07, 1, 0, 0, 1.2, 0, 1, 0, -5.334, 0, 0, 1, 1.07, 1, 0, 0, 2.1, 0, 1, 0, -5.172, 0, 0, 1, 1.07)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5lyk4"]
+shading_mode = 1
+albedo_color = Color(0.405, 0.081, 0.045, 1)
+emission_enabled = true
+emission = Color(0.9, 0.18, 0.1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_j1ulx"]
+material = SubResource("StandardMaterial3D_5lyk4")
+radius = 0.06
+height = 0.12
+radial_segments = 10
+rings = 5
+
+[sub_resource type="MultiMesh" id="MultiMesh_xswqb"]
+transform_format = 1
+instance_count = 6
+mesh = SubResource("SphereMesh_j1ulx")
+buffer = PackedFloat32Array(1, 0, 0, -2.1, 0, 1, 0, -5.172, 0, 0, 1, 1.07, 1, 0, 0, -1.2, 0, 1, 0, -5.334, 0, 0, 1, 1.07, 1, 0, 0, -0.3, 0, 1, 0, -5.496, 0, 0, 1, 1.07, 1, 0, 0, 0.6, 0, 1, 0, -5.442, 0, 0, 1, 1.07, 1, 0, 0, 1.5, 0, 1, 0, -5.28, 0, 0, 1, 1.07, 1, 0, 0, 2.4, 0, 1, 0, -5.118, 0, 0, 1, 1.07)
+
+[node name="Garland" type="Node3D" unique_id=1526771679 groups=["park_night_lights"]]
+script = ExtResource("lighting_script")
+
+[node name="BoatGarland-1Wire" type="MultiMeshInstance3D" parent="." unique_id=1726313494]
+multimesh = SubResource("MultiMesh_04k63")
+
+[node name="BoatGarland-1Bulbs0" type="MultiMeshInstance3D" parent="." unique_id=1302890966]
+multimesh = SubResource("MultiMesh_ugo00")
+
+[node name="BoatGarland-1Bulbs1" type="MultiMeshInstance3D" parent="." unique_id=434205983]
+multimesh = SubResource("MultiMesh_mq4u5")
+
+[node name="BoatGarland-1Bulbs2" type="MultiMeshInstance3D" parent="." unique_id=1241121017]
+multimesh = SubResource("MultiMesh_h6obd")
+
+[node name="BoatGarland1Wire" type="MultiMeshInstance3D" parent="." unique_id=1105800069]
+multimesh = SubResource("MultiMesh_jot11")
+
+[node name="BoatGarland1Bulbs0" type="MultiMeshInstance3D" parent="." unique_id=2114252232]
+multimesh = SubResource("MultiMesh_cq2rq")
+
+[node name="BoatGarland1Bulbs1" type="MultiMeshInstance3D" parent="." unique_id=1692498950]
+multimesh = SubResource("MultiMesh_5oo2l")
+
+[node name="BoatGarland1Bulbs2" type="MultiMeshInstance3D" parent="." unique_id=1166746800]
+multimesh = SubResource("MultiMesh_xswqb")

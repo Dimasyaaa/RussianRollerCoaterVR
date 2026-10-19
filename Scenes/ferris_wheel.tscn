@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://dsu66mk3c36sa"]
+
+[ext_resource type="Material" uid="uid://jo7pv0mrmdp0" path="res://Materials/orbitaMaterial.tres" id="1_3riha"]
+[ext_resource type="Script" uid="uid://dhy8yxbtvtq76" path="res://Scripts/ferris_wheel.gd" id="1_xccy1"]
+[ext_resource type="PackedScene" uid="uid://drea6p1dy1oxy" path="res://Scenes/cabin.tscn" id="2_m8xcr"]
+[ext_resource type="Material" uid="uid://d3p8s8e3mic6c" path="res://Materials/fence_material.tres" id="2_mdu1h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i62le"]
+albedo_color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
+material = SubResource("StandardMaterial3D_i62le")
+size = Vector3(0.8, 6.66494, 0.8)
+
+[sub_resource type="TorusMesh" id="TorusMesh_bhunq"]
+material = ExtResource("1_3riha")
+inner_radius = 4.8
+outer_radius = 5.0
+rings = 32
+ring_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8xcr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sn0t7"]
+material = SubResource("StandardMaterial3D_m8xcr")
+size = Vector3(0.2, 9.8, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(1, 5.7335815, 5.493866)
+
+[node name="FerrisWheel" type="Node3D" unique_id=1470361234]
+script = ExtResource("1_xccy1")
+
+[node name="Base_L" type="MeshInstance3D" parent="." unique_id=295365292]
+transform = Transform3D(1, 0, 0, 0, 0.76874375, 0.639557, 0, -0.639557, 0.76874375, 0, 0.29014426, 2.321467)
+mesh = SubResource("BoxMesh_bhunq")
+
+[node name="Base_R" type="MeshInstance3D" parent="." unique_id=1828981262]
+transform = Transform3D(1, 0, 0, 0, 0.97763455, 0.21031086, 0, -0.21031086, 0.97763455, 0, -0.1335752, 0.9245295)
+mesh = SubResource("BoxMesh_bhunq")
+
+[node name="Axle" type="Node3D" parent="." unique_id=540200254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1347218, 0.3373747)
+
+[node name="Rim" type="MeshInstance3D" parent="Axle" unique_id=564443405]
+mesh = SubResource("TorusMesh_bhunq")
+
+[node name="Spokes" type="Node3D" parent="Axle" unique_id=1780994987]
+
+[node name="spoke1" type="MeshInstance3D" parent="Axle/Spokes" unique_id=315318222]
+transform = Transform3D(1, 0, 0, 0, -0.0068528554, 0.9999765, 0, -0.9999765, -0.0068528554, 0, 0, -0.026631474)
+material_override = ExtResource("2_mdu1h")
+mesh = SubResource("BoxMesh_sn0t7")
+
+[node name="spoke2" type="MeshInstance3D" parent="Axle/Spokes" unique_id=1044003081]
+transform = Transform3D(0.8516207, 0.52414626, 0.003591983, 0, -0.0068528554, 0.9999765, 0.5241586, -0.85160065, -0.0058360333, 0, 0, -0.026631474)
+material_override = ExtResource("2_mdu1h")
+mesh = SubResource("BoxMesh_sn0t7")
+
+[node name="spoke3" type="MeshInstance3D" parent="Axle/Spokes" unique_id=45228849]
+transform = Transform3D(0.42167285, 0.9067267, 0.006213813, 1.9828339e-10, -0.0068528564, 0.99997663, 0.9067482, -0.42166302, -0.0028896634, 0, 0, -0.026631474)
+material_override = ExtResource("2_mdu1h")
+mesh = SubResource("BoxMesh_sn0t7")
+
+[node name="spoke4" type="MeshInstance3D" parent="Axle/Spokes" unique_id=284187377]
+transform = Transform3D(-0.03515473, 0.9993584, 0.00684862, 1.9828339e-10, -0.0068528564, 0.99997663, 0.999382, 0.035153776, 0.0002409094, 0, 0, -0.026631474)
+material_override = ExtResource("2_mdu1h")
+mesh = SubResource("BoxMesh_sn0t7")
+
+[node name="spoke5" type="MeshInstance3D" parent="Axle/Spokes" unique_id=1010617632]
+transform = Transform3D(-0.34513474, 0.93853116, 0.0064317705, 1.8374047e-10, -0.0068528564, 0.99997663, 0.9385532, 0.34512645, 0.0023651572, 0, 0, -0.026631474)
+material_override = ExtResource("2_mdu1h")
+mesh = SubResource("BoxMesh_sn0t7")
+
+[node name="spoke6" type="MeshInstance3D" parent="Axle/Spokes" unique_id=805250505]
+transform = Transform3D(-0.6208329, 0.7839246, 0.00537225, 4.0226442e-10, -0.0068528564, 0.99997663, 0.783943, 0.62081814, 0.0042544776, 0, 0, -0.026631474)
+material_override = ExtResource("2_mdu1h")
+mesh = SubResource("BoxMesh_sn0t7")
+
+[node name="spoke7" type="MeshInstance3D" parent="Axle/Spokes" unique_id=538032028]
+transform = Transform3D(-0.8803992, 0.47422236, 0.0032498557, 4.0226442e-10, -0.0068528564, 0.99997663, 0.47423345, 0.8803783, 0.0060332487, 0, 0, -0.026631474)
+material_override = ExtResource("2_mdu1h")
+mesh = SubResource("BoxMesh_sn0t7")
+
+[node name="Gondolas" type="Node3D" parent="Axle" unique_id=455173499]
+
+[node name="Cabin" parent="Axle/Gondolas" unique_id=897729732 instance=ExtResource("2_m8xcr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.449729, 4.5501947, -0.71968675, -0.17228985)
+
+[node name="Cabin7" parent="Axle/Gondolas" unique_id=1248496668 instance=ExtResource("2_m8xcr")]
+transform = Transform3D(0.51436985, 0, 1.2432418, 0, 1, 0, -0.85756844, 0, 0.7456968, 2.0552738, -0.71968675, -3.97813)
+
+[node name="Cabin2" parent="Axle/Gondolas" unique_id=1692767822 instance=ExtResource("2_m8xcr")]
+transform = Transform3D(0.8084063, 0, -0.85334617, 0, 1, 0, 0.58862454, 0, 1.1719701, 3.7010899, -0.6479747, 2.5165462)
+
+[node name="Cabin3" parent="Axle/Gondolas" unique_id=551790466 instance=ExtResource("2_m8xcr")]
+transform = Transform3D(-0.019460052, 0, -1.4494543, 0, 1, 0, 0.99981046, 0, -0.028211832, 0.31659412, -0.55758166, 4.445855)
+
+[node name="Cabin4" parent="Axle/Gondolas" unique_id=528062523 instance=ExtResource("2_m8xcr")]
+transform = Transform3D(-0.9028399, 0, -0.6233494, 0, 1, 0, 0.4299767, 0, -1.3088732, -3.9642081, -0.55758166, 2.1311727)
+
+[node name="Cabin5" parent="Axle/Gondolas" unique_id=1642122490 instance=ExtResource("2_m8xcr")]
+transform = Transform3D(-0.95191044, 0, 0.44416225, 0, 1, 0, -0.30637598, 0, -1.380012, -4.318655, -0.55758166, -1.29498)
+
+[node name="Cabin6" parent="Axle/Gondolas" unique_id=861103116 instance=ExtResource("2_m8xcr")]
+transform = Transform3D(-0.50992125, 0, 1.2470871, 0, 1, 0, -0.86022097, 0, -0.73924744, -2.3496344, -0.60835934, -3.822132)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=628207573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.023048878, 2.1092527)
+shape = SubResource("BoxShape3D_bhunq")

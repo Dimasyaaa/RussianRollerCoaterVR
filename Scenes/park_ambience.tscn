@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="AudioStream" path="res://Audio/park_ambience.wav" id="ambience"]
+[ext_resource type="Script" path="res://Scripts/looping_audio.gd" id="loop_script"]
+
+[node name="ParkAmbience" type="AudioStreamPlayer"]
+stream = ExtResource("ambience")
+volume_db = -10.0
+script = ExtResource("loop_script")

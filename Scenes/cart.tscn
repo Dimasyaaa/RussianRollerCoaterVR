@@ -1,0 +1,238 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="101_left"]
+[ext_resource type="PackedScene" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="102_right"]
+[ext_resource type="AudioStream" path="res://Audio/cart_creak.wav" id="103_rolling"]
+[ext_resource type="AudioStream" path="res://Audio/wind.wav" id="104_wind"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6cmrr"]
+albedo_color = Color(0.63, 0.06, 0.025, 1)
+metallic = 0.35
+roughness = 0.32
+
+[sub_resource type="BoxMesh" id="BoxMesh_ff7n2"]
+material = SubResource("StandardMaterial3D_6cmrr")
+size = Vector3(1.5, 0.28, 2.35)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ire6"]
+material = SubResource("StandardMaterial3D_6cmrr")
+size = Vector3(1.5, 0.68, 0.12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c02vs"]
+material = SubResource("StandardMaterial3D_6cmrr")
+size = Vector3(1.5, 0.45, 0.12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8vd0w"]
+material = SubResource("StandardMaterial3D_6cmrr")
+size = Vector3(0.1, 0.4, 2.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xo3jb"]
+material = SubResource("StandardMaterial3D_6cmrr")
+size = Vector3(0.1, 0.4, 2.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jvf2a"]
+albedo_color = Color(0.07, 0.1, 0.12, 1)
+roughness = 0.85
+
+[sub_resource type="BoxMesh" id="BoxMesh_f3jhk"]
+material = SubResource("StandardMaterial3D_jvf2a")
+size = Vector3(1.04, 0.18, 0.68)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dy7qu"]
+material = SubResource("StandardMaterial3D_jvf2a")
+size = Vector3(1.04, 0.92, 0.16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aerkj"]
+albedo_color = Color(0.32, 0.36, 0.39, 1)
+metallic = 0.85
+roughness = 0.32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wtx0c"]
+material = SubResource("StandardMaterial3D_aerkj")
+top_radius = 0.035
+bottom_radius = 0.035
+height = 1.0
+radial_segments = 8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5jrmd"]
+material = SubResource("StandardMaterial3D_aerkj")
+top_radius = 0.045
+bottom_radius = 0.045
+height = 1.0
+radial_segments = 8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dloh8"]
+material = SubResource("StandardMaterial3D_aerkj")
+top_radius = 0.23
+bottom_radius = 0.23
+height = 1.0
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_lvn20"]
+material = SubResource("StandardMaterial3D_6cmrr")
+size = Vector3(0.15, 0.035, 0.414)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wevac"]
+material = SubResource("StandardMaterial3D_aerkj")
+top_radius = 0.23
+bottom_radius = 0.23
+height = 1.0
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_m1esy"]
+material = SubResource("StandardMaterial3D_6cmrr")
+size = Vector3(0.15, 0.035, 0.414)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ym700"]
+material = SubResource("StandardMaterial3D_aerkj")
+top_radius = 0.045
+bottom_radius = 0.045
+height = 1.0
+radial_segments = 8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pu6io"]
+material = SubResource("StandardMaterial3D_aerkj")
+top_radius = 0.23
+bottom_radius = 0.23
+height = 1.0
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_levwb"]
+material = SubResource("StandardMaterial3D_6cmrr")
+size = Vector3(0.15, 0.035, 0.414)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8uryk"]
+material = SubResource("StandardMaterial3D_aerkj")
+top_radius = 0.23
+bottom_radius = 0.23
+height = 1.0
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_1m3y4"]
+material = SubResource("StandardMaterial3D_6cmrr")
+size = Vector3(0.15, 0.035, 0.414)
+
+[node name="Cart" type="Node3D" unique_id=707977322]
+
+[node name="RollingSound" type="AudioStreamPlayer3D" parent="."]
+position = Vector3(0, 0.4, 0)
+stream = ExtResource("103_rolling")
+volume_db = -24.0
+max_distance = 30.0
+unit_size = 8.0
+
+[node name="WindSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("104_wind")
+volume_db = -34.0
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1122277190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48, 0)
+mesh = SubResource("BoxMesh_ff7n2")
+
+[node name="Front" type="MeshInstance3D" parent="." unique_id=1681096026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89, -1.08)
+mesh = SubResource("BoxMesh_1ire6")
+
+[node name="Back" type="MeshInstance3D" parent="." unique_id=1320482287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 1.08)
+mesh = SubResource("BoxMesh_c02vs")
+
+[node name="SideLeft" type="MeshInstance3D" parent="." unique_id=1940095800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.72, 0.82, 0)
+mesh = SubResource("BoxMesh_8vd0w")
+
+[node name="SideRight" type="MeshInstance3D" parent="." unique_id=575833366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72, 0.82, 0)
+mesh = SubResource("BoxMesh_xo3jb")
+
+[node name="SeatCushion" type="MeshInstance3D" parent="." unique_id=1065395477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78, 0.42)
+mesh = SubResource("BoxMesh_f3jhk")
+
+[node name="SeatBack" type="MeshInstance3D" parent="." unique_id=1906138747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19, 0.79)
+mesh = SubResource("BoxMesh_dy7qu")
+
+[node name="SafetyBar" type="MeshInstance3D" parent="." unique_id=847352698]
+transform = Transform3D(-4.371139e-08, -1.26, 0, 1, -5.507635e-08, 0, 0, 0, 1, 0, 1.13, -0.24)
+mesh = SubResource("CylinderMesh_wtx0c")
+
+[node name="FrontAxle" type="MeshInstance3D" parent="." unique_id=107623754]
+transform = Transform3D(-4.371139e-08, -1.54, 0, 1, -6.731554e-08, 0, 0, 0, 1, 0, 0.295, -0.79)
+mesh = SubResource("CylinderMesh_5jrmd")
+
+[node name="WheelFrontLeft" type="Node3D" parent="." unique_id=348535820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625, 0.295, -0.79)
+
+[node name="Rim" type="MeshInstance3D" parent="WheelFrontLeft" unique_id=1165622282]
+transform = Transform3D(-4.371139e-08, -0.13, 0, 1, -5.6824803e-09, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_dloh8")
+
+[node name="Spoke" type="MeshInstance3D" parent="WheelFrontLeft" unique_id=1436186819]
+mesh = SubResource("BoxMesh_lvn20")
+
+[node name="WheelFrontRight" type="Node3D" parent="." unique_id=1412175405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625, 0.295, -0.79)
+
+[node name="Rim" type="MeshInstance3D" parent="WheelFrontRight" unique_id=103793681]
+transform = Transform3D(-4.371139e-08, -0.13, 0, 1, -5.6824803e-09, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_wevac")
+
+[node name="Spoke" type="MeshInstance3D" parent="WheelFrontRight" unique_id=1277569864]
+mesh = SubResource("BoxMesh_m1esy")
+
+[node name="RearAxle" type="MeshInstance3D" parent="." unique_id=716841881]
+transform = Transform3D(-4.371139e-08, -1.54, 0, 1, -6.731554e-08, 0, 0, 0, 1, 0, 0.295, 0.79)
+mesh = SubResource("CylinderMesh_ym700")
+
+[node name="WheelRearLeft" type="Node3D" parent="." unique_id=1388048113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625, 0.295, 0.79)
+
+[node name="Rim" type="MeshInstance3D" parent="WheelRearLeft" unique_id=1410679871]
+transform = Transform3D(-4.371139e-08, -0.13, 0, 1, -5.6824803e-09, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_pu6io")
+
+[node name="Spoke" type="MeshInstance3D" parent="WheelRearLeft" unique_id=1770086734]
+mesh = SubResource("BoxMesh_levwb")
+
+[node name="WheelRearRight" type="Node3D" parent="." unique_id=515282068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625, 0.295, 0.79)
+
+[node name="Rim" type="MeshInstance3D" parent="WheelRearRight" unique_id=163841808]
+transform = Transform3D(-4.371139e-08, -0.13, 0, 1, -5.6824803e-09, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_8uryk")
+
+[node name="Spoke" type="MeshInstance3D" parent="WheelRearRight" unique_id=905479606]
+mesh = SubResource("BoxMesh_1m3y4")
+
+[node name="SeatEye" type="Marker3D" parent="."]
+position = Vector3(0, 1.65, 0.35)
+
+[node name="SeatedPlayer" type="XROrigin3D" parent="."]
+current = false
+visible = false
+process_mode = 4
+
+[node name="XRCamera3D" type="XRCamera3D" parent="SeatedPlayer"]
+current = false
+position = Vector3(0, 1.65, 0.35)
+
+[node name="Left" type="XRController3D" parent="SeatedPlayer"]
+tracker = &"left_hand"
+position = Vector3(-0.2, 1.4, -0.15)
+
+[node name="LeftHand" parent="SeatedPlayer/Left" instance=ExtResource("101_left")]
+
+[node name="Right" type="XRController3D" parent="SeatedPlayer"]
+tracker = &"right_hand"
+position = Vector3(0.2, 1.4, -0.15)
+
+[node name="RightHand" parent="SeatedPlayer/Right" instance=ExtResource("102_right")]
+
+[node name="RideMessage" type="Label3D" parent="."]
+position = Vector3(0, 1.3, -0.75)
+text = "ОЖИДАНИЕ"
+font_size = 52
+pixel_size = 0.0018
+outline_size = 8
+

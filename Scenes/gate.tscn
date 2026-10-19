@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cid433p0mwlg"]
+
+[ext_resource type="PackedScene" uid="uid://yllrp1wrwwip" path="res://Models/Gate/fence_gate.fbx" id="1_1lkl7"]
+[ext_resource type="Script" uid="uid://dph4n21lofd5d" path="res://Scripts/gateController.gd" id="2_hn85u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(0.02053833, 0.031829834, 0.0063178707)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_riqys"]
+size = Vector3(0.04, 0.030151367, 0.0068969727)
+
+[node name="Gate" unique_id=248536576 node_paths=PackedStringArray("left_door", "right_door") instance=ExtResource("1_1lkl7")]
+script = ExtResource("2_hn85u")
+left_door = NodePath("fence_gate/fence_gate_left")
+right_door = NodePath("fence_gate/fence_gate_right")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="fence_gate/fence_gate_left" parent_id_path=PackedInt32Array(344778836) index="0" unique_id=1524498476]
+freeze_mode = 1
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence_gate/fence_gate_left/RigidBody3D" index="0" unique_id=1775799592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0046972083, 0.016114956, 0.0005445211)
+shape = SubResource("BoxShape3D_bhunq")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="fence_gate/fence_gate_right" parent_id_path=PackedInt32Array(1980697895) index="0" unique_id=1610024621]
+freeze_mode = 1
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence_gate/fence_gate_right/RigidBody3D" index="0" unique_id=532405681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0066094194, 0.016114956, 0.0005445211)
+shape = SubResource("BoxShape3D_bhunq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence_gate" parent_id_path=PackedInt32Array(1816897949) index="2" unique_id=834295266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015075684, -0.00039673096)
+shape = SubResource("BoxShape3D_riqys")

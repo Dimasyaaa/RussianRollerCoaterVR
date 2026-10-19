@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cc8flshvxiddc"]
+
+[ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_ua8r7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6100f"]
+albedo_color = Color(2.623126e-06, 0.56251645, 0.3037751, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
+material = SubResource("StandardMaterial3D_6100f")
+size = Vector3(0.4, 0.01, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(0.4, 0.01, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ua8r7"]
+size = Vector3(0.89746094, 0.14672852, 1)
+
+[node name="Cash" type="RigidBody3D" unique_id=1599754900 groups=["money"]]
+collision_mask = 65537
+script = ExtResource("1_ua8r7")
+picked_up_layer = 65537
+metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1764376738]
+mesh = SubResource("BoxMesh_bhunq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1990403906]
+shape = SubResource("BoxShape3D_bhunq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1846473400]
+transform = Transform3D(0.45004657, 0, 0, 0, 0.15855855, 0, 0, 0, 0.09579563, -0.0032962393, 0.003154911, 0.059452515)
+mesh = SubResource("BoxMesh_ua8r7")
+skeleton = NodePath("../Area3D/CollisionShape3D")

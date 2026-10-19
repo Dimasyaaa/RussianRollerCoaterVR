@@ -1,0 +1,30 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/cash.tscn" id="1_cash"]
+
+[sub_resource type="StandardMaterial3D" id="green"]
+albedo_color = Color(0.02, 0.56, 0.30, 1)
+
+[sub_resource type="BoxMesh" id="paper"]
+material = SubResource("green")
+size = Vector3(0.14, 0.003, 0.10)
+
+[sub_resource type="BoxShape3D" id="shape"]
+size = Vector3(0.14, 0.01, 0.10)
+
+[node name="Banknote" instance=ExtResource("1_cash")]
+top_level = true
+collision_layer = 4
+collision_mask = 3
+freeze_mode = 1
+release_mode = 0
+picked_up_layer = 65536
+
+[node name="MeshInstance3D" parent="." index="0"]
+mesh = SubResource("paper")
+
+[node name="CollisionShape3D" parent="." index="1"]
+shape = SubResource("shape")
+
+[node name="MeshInstance3D2" parent="." index="2"]
+transform = Transform3D(0.135, 0, 0, 0, 0.04756756, 0, 0, 0, 0.02873869, -0.00098887, 0.00094647, 0.01783575)

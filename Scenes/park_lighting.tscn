@@ -1,0 +1,41 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/park_lamp.tscn" id="lamp"]
+
+[node name="ParkLighting" type="Node3D"]
+
+[node name="Lamp01" parent="." instance=ExtResource("lamp")]
+position = Vector3(-84, 0, -182)
+
+[node name="Lamp02" parent="." instance=ExtResource("lamp")]
+position = Vector3(-72, 0, -161)
+
+[node name="Lamp03" parent="." instance=ExtResource("lamp")]
+position = Vector3(-68, 0, -177)
+
+[node name="Lamp04" parent="." instance=ExtResource("lamp")]
+position = Vector3(-57, 0, -170)
+
+[node name="Lamp05" parent="." instance=ExtResource("lamp")]
+position = Vector3(-55, 0, -190)
+
+[node name="Lamp06" parent="." instance=ExtResource("lamp")]
+position = Vector3(-40, 0, -181)
+
+[node name="Lamp07" parent="." instance=ExtResource("lamp")]
+position = Vector3(-22, 0, -180)
+
+[node name="Lamp08" parent="." instance=ExtResource("lamp")]
+position = Vector3(-18, 0, -166)
+
+[node name="Lamp09" parent="." instance=ExtResource("lamp")]
+position = Vector3(-18, 0, -148)
+
+[node name="Lamp10" parent="." instance=ExtResource("lamp")]
+position = Vector3(-39, 0, -144)
+
+[node name="Lamp11" parent="." instance=ExtResource("lamp")]
+position = Vector3(-56, 0, -127)
+
+[node name="Lamp12" parent="." instance=ExtResource("lamp")]
+position = Vector3(-58, 0, -207)

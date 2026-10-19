@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://cgy5l2b3lgock"]
+
+[ext_resource type="PackedScene" uid="uid://bhkamb7rk6qkq" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://d23jxoggc1thb" path="res://Scenes/fence.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://dw7fjrtrx4t01" path="res://Terrain/ground.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" path="res://Scenes/mill_lit.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://d00knwbxk4teu" path="res://Scenes/fence_2.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" path="res://Scenes/boat_lit.tscn" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://bvdv8fwdhtk3r" path="res://Scenes/kiosk.tscn" id="8_344ge"]
+[ext_resource type="PackedScene" uid="uid://cid433p0mwlg" path="res://Scenes/gate.tscn" id="9_ynf5e"]
+[ext_resource type="PackedScene" path="res://Scenes/ferris_wheel_lit.tscn" id="10_hptm8"]
+[ext_resource type="PackedScene" uid="uid://ctsp3w5fmysfw" path="res://Scenes/coaster.tscn" id="13_coaster"]
+[ext_resource type="PackedScene" path="res://Scenes/park_boundary.tscn" id="14_boundary"]
+[ext_resource type="PackedScene" path="res://Scenes/banknote_supply.tscn" id="15_banknotes"]
+[ext_resource type="PackedScene" path="res://Scenes/park_ambience.tscn" id="16_ambience"]
+[ext_resource type="PackedScene" path="res://Scenes/day_night_cycle.tscn" id="18_cycle"]
+[ext_resource type="PackedScene" path="res://Scenes/history_stand.tscn" id="19_history"]
+[ext_resource type="PackedScene" uid="uid://chkje8cokm4cm" path="res://Scenes/water_cooler.tscn" id="20_cooler"]
+[ext_resource type="PackedScene" path="res://Scenes/park_lighting.tscn" id="21_lighting"]
+[ext_resource type="PackedScene" path="res://Scenes/time_control.tscn" id="22_clock"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_park_north_south"]
+size = Vector3(110.8, 16, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_park_east"]
+size = Vector3(1.2, 16, 107.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_park_west_long"]
+size = Vector3(1.2, 16, 55.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_park_west_short"]
+size = Vector3(1.2, 16, 29.5)
+
+[node name="main" type="Node3D" unique_id=2085550863]
+
+[node name="Player" parent="." unique_id=595821626 instance=ExtResource("1_jjgbg")]
+transform = Transform3D(-0.102920234, 0, -0.99468964, 0, 1, 0, 0.99468964, 0, -0.102920234, -101.95666, 8.110558, -191.57826)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=96115131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.915108, 0)
+light_energy = 16.0
+light_indirect_energy = 0.746
+omni_range = 43.250576
+
+[node name="Fence" parent="." unique_id=265981910 instance=ExtResource("3_8gbba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.18308, 1.5853958, -126.444824)
+
+[node name="HTerrain" parent="." unique_id=321788493 instance=ExtResource("4_jjvhh")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=603598087]
+transform = Transform3D(-0.63307536, 0.0666756, -0.77121335, -0.7361302, 0.25630325, 0.62643504, 0.23943236, 0.9642941, -0.11317734, -96.173615, 40.625977, -145.00516)
+shadow_enabled = true
+
+[node name="Mill" parent="." unique_id=503310643 instance=ExtResource("5_kry3j")]
+transform = Transform3D(0.25856405, 0, -2.9888368, 0, 3, 0, 2.9888368, 0, 0.25856405, -53.98534, 0.19648266, -136.23169)
+
+[node name="Fence2" parent="." unique_id=445749992 instance=ExtResource("6_21xkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.523837, -0.1561184, -163.80038)
+
+[node name="Fence3" parent="." unique_id=1500148319 instance=ExtResource("6_21xkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.523837, -0.1561184, -198.6585)
+
+[node name="FenceAll" parent="." unique_id=1728765897 instance=ExtResource("6_21xkr")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -60.96489, -0.1561184, -226.08481)
+visible = false
+
+[node name="BoatAll" parent="." unique_id=2001912822 instance=ExtResource("7_6bp64")]
+transform = Transform3D(2.598076, -1.5, 0, 1.5, 2.598076, 0, 0, 0, 3, -1.1224041, 4.8849907, -150.49646)
+
+[node name="Kiosk" parent="." unique_id=901603626 instance=ExtResource("8_344ge")]
+transform = Transform3D(-0.33761087, 0, -9.994299, 0, 10, 0, 9.994299, 0, -0.33761087, -79.61081, 1.8851752, -180.78433)
+
+[node name="Gate" parent="." unique_id=248536576 instance=ExtResource("9_ynf5e")]
+transform = Transform3D(-0.036153235, 0, -5.4998813, 0, 5.5, 0, 5.4998813, 0, -0.036153235, -76.19947, 0.021445751, -160.22652)
+
+[node name="FerrisWheel" parent="." unique_id=1470361234 instance=ExtResource("10_hptm8")]
+transform = Transform3D(2, 0, 0, 0, 1.8054814, -0.8603702, 0, 0.8603702, 1.8054814, -1.7396979, 6.215288, -189.64613)
+
+[node name="ParkBoundary" type="StaticBody3D" parent="." unique_id=1119124614]
+collision_layer = 0
+collision_mask = 0
+
+[node name="North" type="CollisionShape3D" parent="ParkBoundary" unique_id=1038971814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.15, 7, -226.1)
+shape = SubResource("BoxShape3D_park_north_south")
+
+[node name="South" type="CollisionShape3D" parent="ParkBoundary" unique_id=2075991344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.15, 7, -119.6)
+shape = SubResource("BoxShape3D_park_north_south")
+
+[node name="East" type="CollisionShape3D" parent="ParkBoundary" unique_id=545640337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1, 7, -172.85)
+shape = SubResource("BoxShape3D_park_east")
+
+[node name="WestBeforeGate" type="CollisionShape3D" parent="ParkBoundary" unique_id=1440268663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.6, 7, -198.2)
+shape = SubResource("BoxShape3D_park_west_long")
+
+[node name="WestAfterGate" type="CollisionShape3D" parent="ParkBoundary" unique_id=1422112483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.6, 7, -134.35)
+shape = SubResource("BoxShape3D_park_west_short")
+
+[node name="Coaster" parent="." unique_id=637674406 instance=ExtResource("13_coaster")]
+
+[node name="ExpandedParkBoundary" parent="." unique_id=320469842 instance=ExtResource("14_boundary")]
+
+[node name="BanknoteSupply" parent="." unique_id=615337254 instance=ExtResource("15_banknotes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83, 0, -184)
+
+[node name="ParkAmbience" parent="." unique_id=329406403 instance=ExtResource("16_ambience")]
+
+[node name="ParkLighting" parent="." unique_id=1080620526 instance=ExtResource("21_lighting")]
+
+[node name="DayNightCycle" parent="." unique_id=1937247960 instance=ExtResource("18_cycle")]
+
+[node name="HistoryStand" parent="." unique_id=981680572 instance=ExtResource("19_history")]
+transform = Transform3D(3.1391647e-07, 0, -1, 0, 1, 0, 1, 0, 3.1391647e-07, -15.156477, 0, -171.06398)
+
+[node name="WaterCooler" parent="." unique_id=1909836394 instance=ExtResource("20_cooler")]
+transform = Transform3D(3.1391647e-07, 0, -1, 0, 1, 0, 1, 0, 3.1391647e-07, -13.472882, 0, -140.66777)
+
+[node name="TimeControl" parent="." unique_id=1921765706 instance=ExtResource("22_clock")]
+transform = Transform3D(7.8479115e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, 7.8479115e-07, -80.176025, 0, -174.88995)

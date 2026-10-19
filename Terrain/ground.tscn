@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dw7fjrtrx4t01"]
+
+[ext_resource type="Script" uid="uid://dgtmxde6nkdt7" path="res://addons/zylann.hterrain/hterrain.gd" id="1_02qk3"]
+[ext_resource type="Resource" uid="uid://c5ne0lxs6vxw0" path="res://Terrain/data.hterrain" id="2_s6h8e"]
+[ext_resource type="Script" uid="uid://cw36olthpy0ah" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_kv0ry"]
+[ext_resource type="Texture2D" uid="uid://bl8kjjbtfoj50" path="res://Terrain/ground_slot0_albedo_bump.png" id="4_kv0ry"]
+[ext_resource type="Texture2D" uid="uid://cotbh3kuxuywt" path="res://Terrain/ground_slot0_normal_roughness.png" id="5_ribny"]
+[ext_resource type="Texture2D" uid="uid://dnt68klbyvrpp" path="res://Terrain/ground_slot1_albedo_bump.png" id="5_rjkga"]
+[ext_resource type="Texture2D" uid="uid://c6rih88sj17pm" path="res://Terrain/ground_slot1_normal_roughness.png" id="7_jjp1w"]
+
+[sub_resource type="Resource" id="Resource_ribny"]
+script = ExtResource("3_kv0ry")
+mode = 0
+textures = [[ExtResource("4_kv0ry"), ExtResource("5_rjkga")], [ExtResource("5_ribny"), ExtResource("7_jjp1w")]]
+
+[node name="HTerrain" type="Node3D" unique_id=321788493]
+script = ExtResource("1_02qk3")
+centered = true
+_terrain_data = ExtResource("2_s6h8e")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 2
+collision_mask = 1
+physics_material = null
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_ribny")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Vector4(0, 0, 0, 0)
+shader_params/u_specular = 0.5
+metadata/_custom_type_script = "uid://dgtmxde6nkdt7"

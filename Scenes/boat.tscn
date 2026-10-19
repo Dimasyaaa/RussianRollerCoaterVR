@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://c5p4l23md1m3n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ookvq"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ou73u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vauh3"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_ou73u"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.43633232)]
+}
+
+[sub_resource type="Animation" id="Animation_ookvq"]
+resource_name = "swing"
+length = 1.0333333
+loop_mode = 1
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.86),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.5300963), Vector3(0, 0, 0.56189585)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vauh3"]
+_data = {
+&"RESET": SubResource("Animation_ou73u"),
+&"swing": SubResource("Animation_ookvq")
+}
+
+[node name="Boat" type="Node3D" unique_id=1803838279]
+transform = Transform3D(0.75512207, 0.35015357, 0, -0.3521192, 0.7509067, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="balka" type="CSGCylinder3D" parent="." unique_id=516733733]
+transform = Transform3D(0.99999994, -3.5527137e-15, -2.9802322e-08, -2.9802322e-08, -7.121523e-08, -1, 0, 1.6292146, -4.371139e-08, 0, 0, 0)
+sides = 15
+material = SubResource("StandardMaterial3D_ookvq")
+
+[node name="1" type="CSGCylinder3D" parent="." unique_id=433298237]
+transform = Transform3D(0.9108278, -0.4127865, 0, 0.4127865, 0.9108278, 0, 0, 0, 1, 1.353, -2.663, 0.7)
+radius = 0.1
+height = 5.513
+material = SubResource("StandardMaterial3D_ou73u")
+
+[node name="2" type="CSGCylinder3D" parent="." unique_id=1450038284]
+transform = Transform3D(0.9108278, -0.4127865, 0, 0.4127865, 0.9108278, 0, 0, 0, 1, 1.353, -2.663, -0.7)
+radius = 0.1
+height = 5.513
+material = SubResource("StandardMaterial3D_ou73u")
+
+[node name="3" type="CSGCylinder3D" parent="." unique_id=777013873]
+transform = Transform3D(0.91068363, 0.41310444, 0, -0.41310444, 0.91068363, 0, 0, 0, 1, -1.353, -2.663, 0.7)
+radius = 0.1
+height = 5.513
+material = SubResource("StandardMaterial3D_ou73u")
+
+[node name="4" type="CSGCylinder3D" parent="." unique_id=288708621]
+transform = Transform3D(0.91068363, 0.41310444, 0, -0.41310444, 0.91068363, 0, 0, 0, 1, -1.353, -2.663, -0.7)
+radius = 0.1
+height = 5.513
+material = SubResource("StandardMaterial3D_ou73u")
+
+[node name="boat_base" type="CSGBox3D" parent="." unique_id=229034519]
+transform = Transform3D(3.7, 0, 0, 0, 0.6, 0, 0, 0, 2, -2.3841858e-07, -5.9999995, 0)
+material = SubResource("StandardMaterial3D_vauh3")
+
+[node name="boat_left" type="CSGBox3D" parent="." unique_id=1877159589]
+transform = Transform3D(1.3346062, 0.3856725, 0, -1.1198673, 0.45962662, 0, 0, 0, 2, -2.322209, -5.511592, 0)
+material = SubResource("StandardMaterial3D_vauh3")
+
+[node name="boat_left2" type="CSGBox3D" parent="." unique_id=24421086]
+transform = Transform3D(-1.5233518, 0.19479689, 0, -1.7421952, -0.17032771, 0, 0, 0, 2, -2.0940027, -5.0453167, 0)
+size = Vector3(0.23852539, 1, 1)
+material = SubResource("StandardMaterial3D_vauh3")
+
+[node name="boat_right" type="CSGBox3D" parent="." unique_id=623091127]
+transform = Transform3D(1.3346064, -0.3856725, 0, 1.1198677, 0.45962662, 0, 0, 0, 2, 2.322, -5.5119996, 0)
+material = SubResource("StandardMaterial3D_vauh3")
+
+[node name="boat_right2" type="CSGBox3D" parent="." unique_id=997258606]
+transform = Transform3D(-1.5243851, -0.19469579, 0, 1.7412912, -0.17044327, 0, 0, 0, 2, 2.094, -5.045, 0)
+size = Vector3(0.23852539, 1, 1)
+material = SubResource("StandardMaterial3D_vauh3")
+
+[node name="danger1" type="CSGBox3D" parent="." unique_id=1170884794]
+transform = Transform3D(13.640478, 0, 0, 0, 1, 0, 0, 0, 0.25514275, 0, -5.5406265, -0.8721882)
+size = Vector3(0.239, 0.376, 1)
+material = SubResource("StandardMaterial3D_vauh3")
+
+[node name="danger2" type="CSGBox3D" parent="." unique_id=1536944932]
+transform = Transform3D(3.6848698, -0.9919465, 0, 3.0919728, 1.1821558, 0, 0, 0, 0.25514275, 1.7058843, -5.3822193, -0.8721882)
+size = Vector3(0.16491015, 0.3681699, 1)
+material = SubResource("StandardMaterial3D_vauh3")
+
+[node name="danger3" type="CSGBox3D" parent="." unique_id=738885443]
+transform = Transform3D(3.6848698, 0.9919464, 0, -3.0919728, 1.1821557, 0, 0, 0, 0.25514275, -1.706, -5.382, -0.872)
+size = Vector3(0.16491015, 0.3681699, 1)
+material = SubResource("StandardMaterial3D_vauh3")
+
+[node name="danger4" type="CSGBox3D" parent="." unique_id=1649435496]
+transform = Transform3D(13.640478, 0, 0, 0, 1, 0, 0, 0, 0.25514275, 0, -5.5406265, 0.872)
+size = Vector3(0.239, 0.376, 1)
+material = SubResource("StandardMaterial3D_vauh3")
+
+[node name="danger5" type="CSGBox3D" parent="." unique_id=1777662008]
+transform = Transform3D(3.6848698, -0.9919465, 0, 3.0919728, 1.1821558, 0, 0, 0, 0.25514275, 1.7058843, -5.3822193, 0.872)
+size = Vector3(0.16491015, 0.3681699, 1)
+material = SubResource("StandardMaterial3D_vauh3")
+
+[node name="danger6" type="CSGBox3D" parent="." unique_id=956572911]
+transform = Transform3D(3.6848698, 0.9919464, 0, -3.0919728, 1.1821557, 0, 0, 0, 0.25514275, -1.706, -5.382, 0.872)
+size = Vector3(0.16491015, 0.3681699, 1)
+material = SubResource("StandardMaterial3D_vauh3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=517651278]
+libraries/ = SubResource("AnimationLibrary_vauh3")
+autoplay = &"swing"
+speed_scale = 0.3
